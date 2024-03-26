@@ -1,0 +1,1 @@
+# assignment-intro-snakemake
