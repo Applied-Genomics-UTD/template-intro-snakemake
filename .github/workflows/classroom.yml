@@ -40,11 +40,41 @@ jobs:
         command: conda run -n snakemake-tutorial snakefmt --check
         timeout: 10
         max-score: 1
+    - name: Dry run passes
+      id: dry-run
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Dry run passes
+        setup-command: "conda env update -q -f environment.yaml"
+        command: conda run -n snakemake-tutorial snakemake -n
+        timeout: 10
+        max-score: 1
+    - name: Full Workflow
+      id: full-workflow
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Full Workflow
+        setup-command: "conda env update -q -f environment.yaml"
+        command: conda run -n snakemake-tutorial snakemake -n 2
+        timeout: 10
+        max-score: 2
+    - name: Run Tests
+      id: run-tests
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Run Tests
+        setup-command: "conda env update -q -f environment.yaml"
+        command: conda run -n snakemake-tutorial pytest
+        timeout: 10
+        max-score: 5
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
         GENERATE-A-BAM_RESULTS: "${{steps.generate-a-bam.outputs.result}}"
         DRY-RUN-OF-A-BAM_RESULTS: "${{steps.dry-run-of-a-bam.outputs.result}}"
         CHECK-SNAKEMAKEFMT_RESULTS: "${{steps.check-snakemakefmt.outputs.result}}"
+        DRY-RUN_RESULTS: "${{steps.dry-run.outputs.result}}"
+        FULL-WORKFLOW_RESULTS: "${{steps.full-workflow.outputs.result}}"
+        RUN-TESTS_RESULTS: "${{steps.run-tests.outputs.result}}"
       with:
-        runners: generate-a-bam,dry-run-of-a-bam,check-snakemakefmt
+        runners: generate-a-bam,dry-run-of-a-bam,check-snakemakefmt,dry-run,full-workflow,run-tests
