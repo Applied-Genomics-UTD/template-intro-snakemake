@@ -6,7 +6,13 @@
     },
     "customizations": {
         "vscode": {
-            "extensions": ["tfehlmann.snakefmt", "snakemake.snakemake-lang"]
+            "extensions": [
+                "tfehlmann.snakefmt",
+                "snakemake.snakemake-lang",
+                "GitHub.copilot",
+                "GitHub.copilot-chat",
+                "ms-vscode-remote.remote-containers"
+            ]
         }
     }
 }
