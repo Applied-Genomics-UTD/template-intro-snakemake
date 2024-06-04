@@ -55,7 +55,7 @@ jobs:
       with:
         test-name: Full Workflow
         setup-command: "conda env update -q -f environment.yaml"
-        command: conda run -n snakemake-tutorial snakemake -n 2
+        command: conda run -n snakemake-tutorial snakemake --cores 2
         timeout: 10
         max-score: 2
     - name: Run Tests
