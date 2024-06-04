@@ -1,3 +1,4 @@
+name: snakemake-tutorial
 channels:
   - conda-forge
   - bioconda

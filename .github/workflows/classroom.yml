@@ -18,8 +18,8 @@ jobs:
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: Generate A.bam
-        setup-command: "conda env update -n base -f environment.yaml"
-        command: snakemake --cores 1 mapped_reads/A.bam
+        setup-command: "conda env update -q -f environment.yaml"
+        command: conda run -n snakemake-tutorial snakemake --cores 1 mapped_reads/A.bam
         timeout: 10
         max-score: 1
     - name: Dry run of A.bam
@@ -27,8 +27,8 @@ jobs:
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: Dry run of A.bam
-        setup-command: "conda env update -n base -f environment.yaml"
-        command: snakemake -np mapped_reads/A.bam
+        setup-command: "conda env update -q -f environment.yaml"
+        command: conda run -n snakemake-tutorial snakemake -np mapped_reads/A.bam
         timeout: 10
         max-score: 1
     - name: Check snakemakefmt
@@ -36,8 +36,8 @@ jobs:
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: Check snakemakefmt
-        setup-command: "conda env update -n base -f environment.yaml"
-        command: snakefmt
+        setup-command: "conda env update -q -f environment.yaml"
+        command: conda run -n snakemake-tutorial snakefmt --check
         timeout: 10
         max-score: 1
     - name: Autograding Reporter
