@@ -1,0 +1,50 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Generate A.bam
+      id: generate-a-bam
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Generate A.bam
+        setup-command: ''
+        command: snakemake --cores 1 mapped_reads/A.bam
+        timeout: 10
+        max-score: 1
+    - name: Dry run of A.bam
+      id: dry-run-of-a-bam
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Dry run of A.bam
+        setup-command: ''
+        command: snakemake -np mapped_reads/A.bam
+        timeout: 10
+        max-score: 1
+    - name: Check snakemakefmt
+      id: check-snakemakefmt
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Check snakemakefmt
+        setup-command: ''
+        command: snakefmt
+        timeout: 10
+        max-score: 1
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        GENERATE-A-BAM_RESULTS: "${{steps.generate-a-bam.outputs.result}}"
+        DRY-RUN-OF-A-BAM_RESULTS: "${{steps.dry-run-of-a-bam.outputs.result}}"
+        CHECK-SNAKEMAKEFMT_RESULTS: "${{steps.check-snakemakefmt.outputs.result}}"
+      with:
+        runners: generate-a-bam,dry-run-of-a-bam,check-snakemakefmt
