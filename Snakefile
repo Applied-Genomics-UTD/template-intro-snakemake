@@ -8,7 +8,7 @@
 #         "data/genome.fa",
 #         "data/samples/A.fastq"
 #     shell:
-#         "tar --wildcards -xf snakemake-tutorial-data.tar.gz --strip 1 '*/data'"
+#         "tar --wildcards -xf {input} --strip 1 '*/data'"
 
 rule bwa_map:
     input:
