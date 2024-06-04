@@ -1,3 +1,15 @@
+# TODO Uncomment me!
+# rule snakemake_tutorial_data:
+#     input:
+#         storage.http(
+# "https://api.github.com/repos/snakemake/snakemake-tutorial-data/tarball"
+#         ),
+#     output:
+#         "data/genome.fa",
+#         "data/samples/A.fastq"
+#     shell:
+#         "tar --wildcards -xf snakemake-tutorial-data.tar.gz --strip 1 '*/data'"
+
 rule bwa_map:
     input:
         "data/genome.fa",

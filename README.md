@@ -16,6 +16,9 @@ curl -L https://api.github.com/repos/snakemake/snakemake-tutorial-data/tarball -
 tar --wildcards -xf snakemake-tutorial-data.tar.gz --strip 1 "*/data" "*/environment.yaml"
 ```
 
+> [!TIP]
+> There's a rule commented out in the `Snakefile` that will do this automatically
+
 ## Basics: An example workflow
 
 https://snakemake.readthedocs.io/en/stable/tutorial/basics.html
