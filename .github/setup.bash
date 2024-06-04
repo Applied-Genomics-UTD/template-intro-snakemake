@@ -6,4 +6,5 @@ conda create -n snakemake-tutorial --clone snakemake; \
 mkdir -p /tmp/conda
 CONDA_PKGS_DIRS=/tmp/conda
 
+conda init
 conda activate snakemake-tutorial
