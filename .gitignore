@@ -5,3 +5,8 @@ tmp/
 
 snakemake-tutorial-data.tar.gz
 /data
+/.snakemake
+calls/
+mapped_reads/
+plots/
+sorted_reads/
