@@ -1,4 +1,4 @@
-# assignment-intro-snakemake
+# Intro to Snakemake
 
 https://snakemake.readthedocs.io/en/stable/tutorial/tutorial.html
 
