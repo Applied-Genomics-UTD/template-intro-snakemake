@@ -7,4 +7,5 @@ mkdir -p /tmp/conda
 CONDA_PKGS_DIRS=/tmp/conda
 
 conda init
+source /home/runner/.bashrc
 conda activate snakemake-tutorial
