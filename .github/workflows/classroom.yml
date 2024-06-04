@@ -18,7 +18,7 @@ jobs:
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: Generate A.bam
-        setup-command: ''
+        setup-command: "./.github/setup.bash"
         command: snakemake --cores 1 mapped_reads/A.bam
         timeout: 10
         max-score: 1
@@ -27,7 +27,7 @@ jobs:
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: Dry run of A.bam
-        setup-command: ''
+        setup-command: "./.github/setup.bash"
         command: snakemake -np mapped_reads/A.bam
         timeout: 10
         max-score: 1
@@ -36,7 +36,7 @@ jobs:
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: Check snakemakefmt
-        setup-command: ''
+        setup-command: "./.github/setup.bash"
         command: snakefmt
         timeout: 10
         max-score: 1
