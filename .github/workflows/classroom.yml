@@ -21,7 +21,7 @@ jobs:
         setup-command: "conda env update -q -f environment.yaml"
         command: conda run -n snakemake-tutorial snakemake --cores 1 mapped_reads/A.bam
         timeout: 10
-        max-score: 1
+        max-score: 2
     - name: Dry run of A.bam
       id: dry-run-of-a-bam
       uses: classroom-resources/autograding-command-grader@v1
@@ -30,7 +30,7 @@ jobs:
         setup-command: "conda env update -q -f environment.yaml"
         command: conda run -n snakemake-tutorial snakemake -np mapped_reads/A.bam
         timeout: 10
-        max-score: 1
+        max-score: 2
     - name: Check snakemakefmt
       id: check-snakemakefmt
       uses: classroom-resources/autograding-command-grader@v1
@@ -39,7 +39,7 @@ jobs:
         setup-command: "conda env update -q -f environment.yaml"
         command: conda run -n snakemake-tutorial snakefmt --check
         timeout: 10
-        max-score: 1
+        max-score: 2
     - name: Dry run passes
       id: dry-run
       uses: classroom-resources/autograding-command-grader@v1
@@ -48,7 +48,7 @@ jobs:
         setup-command: "conda env update -q -f environment.yaml"
         command: conda run -n snakemake-tutorial snakemake -n
         timeout: 10
-        max-score: 1
+        max-score: 2
     - name: Full Workflow
       id: full-workflow
       uses: classroom-resources/autograding-command-grader@v1
