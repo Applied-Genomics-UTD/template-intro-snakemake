@@ -13,7 +13,8 @@
                 "snakemake.snakemake-lang",
                 "GitHub.copilot",
                 "GitHub.copilot-chat",
-                "ms-vscode-remote.remote-containers"
+                "ms-vscode-remote.remote-containers",
+                "vitaliymaz.vscode-svg-previewer"
             ]
         }
     }
