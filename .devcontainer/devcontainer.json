@@ -8,7 +8,6 @@
         "ghcr.io/devcontainers-contrib/features/starship:1": {}
     },
     "postCreateCommand": "mamba init",
-    "postAttachCommand": "mamba activate snakemake-tutorial",
     "customizations": {
         "vscode": {
             "extensions": [
