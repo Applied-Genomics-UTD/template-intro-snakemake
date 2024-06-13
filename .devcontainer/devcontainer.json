@@ -8,6 +8,7 @@
         "ghcr.io/devcontainers-contrib/features/starship:1": {}
     },
     "postCreateCommand": "mamba init",
+    "postStartCommand": "echo 'eval \"$(starship init bash)\"' >> ~/.bashrc",
     "customizations": {
         "vscode": {
             "extensions": [
