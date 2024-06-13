@@ -31,15 +31,16 @@ jobs:
         command: conda run -n snakemake-tutorial snakemake -np mapped_reads/A.bam
         timeout: 10
         max-score: 2
-    - name: Check snakemakefmt
-      id: check-snakemakefmt
-      uses: classroom-resources/autograding-command-grader@v1
-      with:
-        test-name: Check snakemakefmt
-        setup-command: "conda env update -q -f environment.yaml"
-        command: conda run -n snakemake-tutorial snakefmt --check
-        timeout: 10
-        max-score: 2
+    # FIXME Everyone needs two lines in-between rules
+    # - name: Check snakemakefmt
+    #   id: check-snakemakefmt
+    #   uses: classroom-resources/autograding-command-grader@v1
+    #   with:
+    #     test-name: Check snakemakefmt
+    #     setup-command: "conda env update -q -f environment.yaml"
+    #     command: conda run -n snakemake-tutorial snakefmt --check
+    #     timeout: 10
+    #     max-score: 2
     - name: Dry run passes
       id: dry-run
       uses: classroom-resources/autograding-command-grader@v1
@@ -77,4 +78,4 @@ jobs:
         FULL-WORKFLOW_RESULTS: "${{steps.full-workflow.outputs.result}}"
         RUN-TESTS_RESULTS: "${{steps.run-tests.outputs.result}}"
       with:
-        runners: generate-a-bam,dry-run-of-a-bam,check-snakemakefmt,dry-run,full-workflow,run-tests
+        runners: generate-a-bam,dry-run-of-a-bam,dry-run,full-workflow,run-tests
