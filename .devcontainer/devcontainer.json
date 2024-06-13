@@ -5,7 +5,7 @@
         "dockerfile": "../Dockerfile"
     },
     "postCreateCommand": "mamba init",
-    "postStartCommand": "mamba activate snakemake-tutorial",
+    "postAttachCommand": "mamba activate snakemake-tutorial",
     "customizations": {
         "vscode": {
             "extensions": [
