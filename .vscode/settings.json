@@ -1,3 +1,4 @@
 {
+    "files.autoSave": "onFocusChange",
     "python.defaultInterpreterPath": "/opt/conda/envs/snakemake/envs/snakemake-tutorial"
 }
