@@ -4,6 +4,7 @@ channels:
   - bioconda
 dependencies:
   - snakemake-minimal >=8.4.4
+  - snakefmt
   - jinja2
   - matplotlib
   - graphviz
